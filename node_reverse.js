@@ -28,7 +28,7 @@ class List{
    }
   else{
     navigate = this.head;
-      while(navigate.next){
+      while(navigate){
        navigate = navigate.next;
       }
       navigate.next = newnode;
