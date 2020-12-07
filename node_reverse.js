@@ -68,7 +68,52 @@ function reverse(head) {
   }
   return prev;
 }
+class Node {
+  constructor(x) {
+    this.data = x;
+    this.next = null;
+  }
+}
 
+// Add any helper functions you may need here
+
+
+function reverse(head) {
+  if(head == null)
+   return null;
+  var curr = head;
+  var first = new Node(head.data);
+  first.next = null;  // copy
+  var sol =  first;  // pointeur solution qui contient le premier node
+  var curSol = sol; // pointeur qui va bouger pour faire des insertions
+ curr = curr.next;
+ while(curr){
+ if(curr.data % 2 === 0){
+   var node = new Node(curr.data);
+   node.next = curSol; \\ dans le nouveau pointeur insere son next est le pointeur cursol qui move.
+   if(curSol === sol){
+    // we are inserting at the beginning of solution
+     sol = node;
+  }
+   curSol = node;
+} // fin pair
+else{   // si impair
+ while(curSol.next) {  // 
+     curSol = curSol.next;
+ }
+  var node = new Node(curr.data);
+  node.next = curSol.next;
+  curSol.next = node;
+  curSol.next = curSol.next.next
+
+ }
+Curr = curr.next;
+}
+
+return sol;
+}
+
+}
 
 
 
