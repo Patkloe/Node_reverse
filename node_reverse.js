@@ -47,3 +47,34 @@ var tab =  [1, 2, 8, 9, 12, 16];
 var test = new List();
 for(var i = 0; i < tab.length; i++)
    test.add(tab[i]);
+
+// function to reverse a linkedlist
+function reverse(head) {
+  // Write your code here
+  var prev = null;  // to keep the pointer before going on next
+  var curr = head; // current pointer on head
+  var temp = null; // variable to swap pointer when the condition is met
+  while(curr){ // while the current pointer is different of null
+    prev = curr;   // we keep the the current pointer on a previous pointer
+    if((even(prev.data))&&(even(curr.next.data))){ // if the condition is met
+      temp = curr.next;    // we swap
+      curr.next = prev;   // swapping process
+      prev = temp;        // swapping process
+      curr = temp.next; // iteration is moving forward
+    }
+    else{   // if the condition is not met
+     curr = curr.next ;   // we iterate on the next
+    }
+  }
+  return prev;
+}
+
+
+
+
+
+
+
+
+
+
