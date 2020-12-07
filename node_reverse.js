@@ -68,6 +68,8 @@ function reverse(head) {
   }
   return prev;
 }
+
+//  A comprendre
 class Node {
   constructor(x) {
     this.data = x;
