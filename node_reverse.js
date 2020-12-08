@@ -114,7 +114,82 @@ Curr = curr.next;
 
 return sol;
 }
+}
 
+// A voir avec la Mecreance
+class Node{
+ constructor(element){
+  this.element = element;
+  this.next = null;
+ }
+}
+class Linkedlist{
+ constructor(){
+  this.head = null;
+  this.pile = [];
+ }
+  add(element){
+   var newnode = new Node(element);
+   var navigate;
+   if(this.head === null){
+      this.head = newnode;
+      console.log("Head of the list : " + " " + this.head.element);
+      this.pile.push(this.head.element);
+   }
+   else{
+    navigate = this.head;
+    while(navigate.next){
+          navigate = navigate.next;
+    }
+          navigate.next = newnode;
+          console.log("new node added : " + " " + navigate.next.element + " " + "previous :" + " " + navigate.element);
+          this.pile.push(navigate.next.element);
+   }
+   var list = navigate;
+   console.log(list);
+   console.log("test"+ " "+ this.pile);
+  }// end add
+reverse(head) {
+  if(head == null){
+     return null;
+   }
+    var curr = head;
+    var first = new Node(head.data);
+    alert(first.data);
+    first.next = null;  // copy
+    var sol =  first;  // pointeur solution qui contient le premier node
+    var curSol = sol; // pointeur qui va bouger pour faire des insertions
+    curr = curr.next;
+  while(curr){
+    if(curr.data % 2 === 0){
+      var node = new Node(curr.data);
+      node.next = curSol; //dans le nouveau pointeur insere son next est le pointeur cursol qui move.
+      if(curSol === sol){
+         // we are inserting at the beginning of solution
+        sol = node;
+      }
+       curSol = node;
+    } // fin pair
+    else{   // si impair
+      while(curSol.next) {  // 
+        curSol = curSol.next;
+       }// fin while(curSol.next)
+       var node = new Node(curr.data);
+       node.next = curSol.next;
+       curSol.next = node;
+       curSol.next = curSol.next.next
+     }
+    Curr = curr.next;
+  }// fin while(curr)
+  console.log("materialise  : " + " " + first.data);
+  return sol;
+ } // end reverse
+}// end class Linkedlist
+var test = new Linkedlist();
+var tab = [1,2,5,4,6];
+for(var i = 0; i < tab[i]; i++){
+      test.add(tab[i]);
+      test.reverse(tab[i]);
 }
 
 
